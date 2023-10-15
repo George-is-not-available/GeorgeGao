@@ -1,7 +1,7 @@
-"""
+
 NeverGonnaGiveYouUp=1145142333
 print(type(NeverGonnaGiveYouUp))
-"""
+
 
 
 """
