@@ -44,7 +44,7 @@ def get_player_input(current_player):
                 print("\033[91mDamn it!"
                       "What's problem with you?\033[0m")
 
-def main():
+def main2():
     player1_ = get_valid_bet_input("Player 1(x)")
     player2_ = get_valid_bet_input("Player 2(o)")
 
@@ -85,17 +85,19 @@ def main():
 
         for i in range(3):
             if board[i] == board[i + 3] == board[i + 6] != " ":
-                print(f"Player {current_player} wins the game!")
-                print(f"Congratulations to Player {current_player} for winning {player1_ + player2_} dollars!")
+                print(f"\033[33;1mPlayer {current_player} wins the game!")
+                print(f"\033[33;1mCongratulations to Player {current_player} for winning"
+                      f" {player1_ + player2_} dollars! \033[0m")
                 exit()
 
         if (board[0] == board[4] == board[8] != " ") or (board[2] == board[4] == board[6] != " "):
-            print(f"Player {current_player} wins the game!")
-            print(f"Congratulations to Player {current_player} for winning {player1_ + player2_} dollars!")
+            print(f"\033[33;1mPlayer {current_player} wins the game!")
+            print(f"\033[33;1mCongratulations to Player {current_player} for winning "
+                  f"{player1_ + player2_} dollars! \033[0m")
             exit()
 
         if " " not in board:
-            print("It's a tie!")
+            print("\033[97;1mNo winner!")
             break
 
         current_player = "X" if current_player == "O" else "O"
