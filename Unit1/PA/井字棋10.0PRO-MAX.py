@@ -1,5 +1,12 @@
 import random
 
+import time
+print("DownLoading    (Expect to download    170.52MB)")
+for i in range(1, 10):
+    print("———", end='')
+    time.sleep(1)
+    i += 1
+print("\033[93m The game is ready.\033[0m")
 
 def get_valid_bet_input(player_name):
     while True:
@@ -33,22 +40,27 @@ def get_player_input(current_player):
             print("Please enter a number.")
             invalid_input_count += 1
             if invalid_input_count >= 2:
-                print("Wait...................")
-                print('\033[91mWhat are you Fa*king doing??????\n'
+                import time
+                print("Wait")
+                for i in range(1, 15):
+                    print(".", end='')
+                    time.sleep(1)
+                    i += 1
+                print('\n \033[94mDamn\033[91m What are you Fa*king doing??????\n'
                       '\033[96mAre you STUPID??????\n \033[93m'
                       'Please enter a number between 1 to 9 \033[0m \n '
                       '\033[94mDamn it!  \n \033[93mCan\'t you understand what i\'m talking about??? \n '
                       '\033[33mI really don\'t know what\'s going on in your head!\n \033[95m'
                       'Come on, please play by the rules!\033[0m \n')
             else:
-                print("\033[91mDamn it!"
+                print("\033[91m"
                       "What's problem with you?\033[0m")
 
-def main():
+def main_():    # 下赌注环节
     player1_ = get_valid_bet_input("Player 1(x)")
     player2_ = get_valid_bet_input("Player 2(o)")
 
-    current_player = ""
+    current_player = ""     # 判断谁下的赌注大谁为先手
     if player1_ > player2_:
         current_player = "X"
     elif player2_ > player1_:
@@ -57,16 +69,19 @@ def main():
         current_player = random.choice(["X", "O"])
 
     print(f"Player {current_player} starts the game!")
-    board = [" " for _ in range(9)]
 
+    # 打印棋盘
+    board = [" " for _ in range(9)]
     while True:
         print(f"{board[0]} | {board[1]} | {board[2]}")
-        print("---------")
+        print("—————————")
         print(f"{board[3]} | {board[4]} | {board[5]}")
-        print("---------")
+        print("—————————")
         print(f"{board[6]} | {board[7]} | {board[8]}")
 
         move = get_player_input(current_player)
+
+        # 判断输入的数字是否有效
 
         if board[move] == " ":
             board[move] = current_player
@@ -74,31 +89,31 @@ def main():
             print("Invalid move. That position is already occupied. Try again.")
             continue
 
+            # 判断是否有玩家获胜
+
         for i in range(0, 9, 3):
             if board[i] == board[i + 1] == board[i + 2] != " ":
                 print(f"Player {current_player} wins the game!")
                 print(f"Congratulations to Player {current_player} for winning {player1_ + player2_} dollars!")
                 exit()
-
         for i in range(3):
             if board[i] == board[i + 3] == board[i + 6] != " ":
                 print(f"\033[33;1mPlayer {current_player} wins the game!")
                 print(f"\033[33;1mCongratulations to Player {current_player} for winning"
                       f" {player1_ + player2_} dollars! \033[0m")
                 exit()
-
         if (board[0] == board[4] == board[8] != " ") or (board[2] == board[4] == board[6] != " "):
             print(f"\033[33;1mPlayer {current_player} wins the game!")
             print(f"\033[33;1mCongratulations to Player {current_player} for winning "
                   f"{player1_ + player2_} dollars! \033[0m")
             exit()
-
+        # 判断是否有平局
         if " " not in board:
             print("\033[97;1mNo winner!")
             break
-
+        # 切换玩家
         current_player = "X" if current_player == "O" else "O"
 
 
 if __name__ == "__main__":
-    main()
+    main_()
