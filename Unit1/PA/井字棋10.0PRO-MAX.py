@@ -28,7 +28,7 @@ def get_player_input(current_player):
             if 1 <= move <= 9:
                 return move - 1  # 调整索引以匹配列表的索引
             else:
-                print("Invalid position. Please enter a number between 1 to 9.")
+                print("\033[94m Oh Dash!\033[35m Please enter a number between 1 to 9.\033[0m")
         except ValueError:
             print("Please enter a number.")
             invalid_input_count += 1
@@ -44,7 +44,7 @@ def get_player_input(current_player):
                 print("\033[91mDamn it!"
                       "What's problem with you?\033[0m")
 
-def main2():
+def main():
     player1_ = get_valid_bet_input("Player 1(x)")
     player2_ = get_valid_bet_input("Player 2(o)")
 
@@ -57,10 +57,7 @@ def main2():
         current_player = random.choice(["X", "O"])
 
     print(f"Player {current_player} starts the game!")
-
     board = [" " for _ in range(9)]
-
-
 
     while True:
         print(f"{board[0]} | {board[1]} | {board[2]}")
