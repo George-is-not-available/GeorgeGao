@@ -28,12 +28,7 @@ def player_choose_play(player):
 
 def print_board(board):
     # 系统清屏操作
-    def clear():
-        if os.name == "nt":
-            os.system('cls')
-        else:
-            os.system('clear')
-
+    clear()
     for i in range(0, 9, 3):
         print(f"{board[i]} | {board[i + 1]} | {board[i + 2]}")
         if i < 6:
@@ -124,6 +119,8 @@ def get_player_input(current_player, board):
             print("\033[33mI really don‘t know what’s going on in your head!\n \033[95m")
             time.sleep(2)
             print('Come on, please play by the rules!\033[0m \n')
+            time.sleep(3)
+            clear()
 
 
 def play_seven_steps_version():
@@ -167,10 +164,7 @@ def play_seven_steps_version():
                 winnings = player1_bet + player2_bet
                 print(f"\033[93mCongratulations to Player {current_player} for winning {winnings} dollars!\n"
                       f"一看就是玩原神玩的（doge\033[0m")
-            else:
-                continue
-            exit()
-
+                exit()
         current_player = "X" if current_player == "O" else "O"
 
 
