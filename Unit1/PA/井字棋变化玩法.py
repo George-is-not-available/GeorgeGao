@@ -14,11 +14,11 @@ def get_valid_bet_input(player_name):
             print("\033[91mError Invalid input. \033[95mPlease enter a valid number for the bet.\033[0m")
 
 
-def get_player_input(current_player, move, board, move_count):
+def get_player_input(current_player, moves, board, move_count):
     while True:
         try:
             if move_count >= 7:
-                removed_move = move.pop(0)
+                removed_move = moves.pop(0)
                 board[removed_move] = " "  # 清除第一个棋子
             move_ = int(input(f"Player {current_player}, choose a position (1-9) to play: "))
             if 1 <= move_ <= 9:
