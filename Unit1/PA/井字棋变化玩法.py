@@ -1,10 +1,13 @@
 import time
 import os
 import random
-
+# 系统清屏操作
+def clear():
+    if os.name == "nt":
+        os.system('cls')
+    else:
+        os.system('clear')
 moves = []
-
-
 def get_valid_bet_input(player_name):
     while True:
         try:
@@ -12,7 +15,6 @@ def get_valid_bet_input(player_name):
             return bet
         except ValueError:
             print("\033[91mError Invalid input. \033[95mPlease enter a valid number for the bet.\033[0m")
-
 
 def get_player_input(current_player, moves, board, move_count):
     while True:
@@ -49,14 +51,13 @@ def get_player_input(current_player, moves, board, move_count):
                   "What's problem with you?\033[0m")
             move_count += 1  # 更新移动计数
 
-
 def main():
     print("DownLoading    (Expect to download    170.52MB)")
-    for i in range(1, 10):
+    for i in range(1, 20):
         print("———", end='')
         time.sleep(1)
         i += 1
-    print("\033[93m The game is ready.\033[0m")
+    print("\n \033[93m The game is ready.\033[0m")
     time.sleep(5)
     os.system('cls' if os.name == 'nt' else 'clear')  # 清屏
 
@@ -72,6 +73,7 @@ def main():
 
     board = [" " for _ in range(9)]
     move_count = 0  # 初始化移动计数
+    moves = []  # 初始化 moves 列表
 
     while True:
         print(f"{board[0]} | {board[1]} | {board[2]}")
@@ -91,7 +93,6 @@ def main():
         # ... 检查胜利和平局的代码 ...
 
         current_player = "X" if current_player == "O" else "O"
-
 
 if __name__ == "__main__":
     main()
