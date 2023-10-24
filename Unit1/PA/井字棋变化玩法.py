@@ -134,19 +134,28 @@ def play_seven_steps_version():
 
     board = [" " for _ in range(9)]
     move_count = 0
+    moves = []  # 用于跟踪棋子的列表
 
     while True:
         print_board(board)
         move = get_player_input(current_player, board)
         board[move] = current_player
         move_count += 1
+        moves.append(move)  # 将移动添加到列表
 
-        if move_count >= 5:
+        if move_count > 7:
+            removed_move = moves.pop(0)
+            board[removed_move] = " "  # 删除第一个棋子
+
+        if move_count >= 7:
             print_board(board)
-            print(f"\033[93mPlayer {current_player} wins the game!")
-            winnings = player1_bet + player2_bet
-            print(f"[93mCongratulations to Player {current_player} for winning {winnings} dollars!"
-                  f"一看就是玩原神玩的（doge\033[0m")
+            if check_winner(board, current_player):
+                print(f"\033[93mPlayer {current_player} wins the game!")
+                winnings = player1_bet + player2_bet
+                print(f"\033[93mCongratulations to Player {current_player} for winning {winnings} dollars!\n"
+                      f"一看就是玩原神玩的（doge\033[0m")
+            else:
+                print("\033[1mNo winner\033[0m")
             exit()
 
         current_player = "X" if current_player == "O" else "O"
