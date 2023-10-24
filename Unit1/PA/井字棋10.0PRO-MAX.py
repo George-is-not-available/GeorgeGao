@@ -1,5 +1,4 @@
 import random
-
 import time
 
 print("DownLoading    (Expect to download    170.52MB)")
@@ -41,24 +40,25 @@ def get_player_input(current_player):
             else:
                 print("\033[94m Oh Dash!\033[35m Please enter a number between 1 to 9.\033[0m")
         except ValueError:
-            print("Please enter a number.")
-            invalid_input_count += 1
-            if invalid_input_count >= 2:
-                import time
-                print("Wait")
-                for fuck in range(1, 10):
-                    print(".", end='')
-                    time.sleep(1)
-                    fuck += 1
-                print('\n \033[94mDamn\033[91m What are you Fa*king doing??????\n'
-                      '\033[96m一看就是玩原神玩的,都玩傻了.\n \033[93m'
-                      'Please enter a number between 1 to 9 \033[0m \n '
-                      '\033[94mDamn it!  \n \033[93mCan\'t you understand what i\'m talking about??? \n '
-                      '\033[33mI really don\'t know what\'s going on in your head!\n \033[95m'
-                      'Come on, please play by the rules!\033[0m \n')
-            else:
-                print("\033[91m"
-                      "What's problem with you?\033[0m")
+            for fuck in range(1, 10):
+                print(".", end='')
+                time.sleep(1)
+                fuck += 1
+                print('\n \033[94mDamn\033[91m What are you Fa*king doing??????\n')
+                time.sleep(2)
+                print('\033[96m一看就是玩原神玩的,都玩傻了.\n \033[93m')
+                time.sleep(2)
+                print('Please enter a number between 1 to 9 \033[0m \n ')
+                time.sleep(2)
+                print('\033[94mDamn it!  \n \033[93mCan\'t you understand what i\'m talking about??? \n ')
+                time.sleep(2)
+                print('\033[33mI really don\'t know what\'s going on in your head!\n \033[95m')
+                time.sleep(2)
+                print('Come on, please play by the rules!\033[0m \n')
+                time.sleep(3)
+        else:
+            print("\033[91m"
+                  "What's problem with you?\033[0m")
 
 
 def main_():  # 下赌注环节
