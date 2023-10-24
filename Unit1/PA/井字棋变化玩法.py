@@ -1,5 +1,4 @@
 import time
-
 import os
 import random
 
@@ -45,7 +44,7 @@ def get_player_input(current_player):
 def _player_input(current_player, moves, board):
     while True:
         try:
-            if len(moves) >= 7:
+            if len(moves) >= 6:
                 removed_move = moves.pop(0)
                 board[removed_move] = " "
             move_ = int(input(f"Player {current_player}, choose a position (1-9) to play: "))
@@ -77,7 +76,7 @@ def _player_input(current_player, moves, board):
 
 # 检查游戏是否结束的逻辑
 def check_game_over(board, current_player):
-    # 实现检查游戏是否结束的逻辑
+    # 检查游戏是否结束的逻辑
     pass
 
 
@@ -89,6 +88,8 @@ def main():
         time.sleep(1)
         i += 1
     print("\033[93m The game is ready.\033[0m")
+    print("\n\033[95m声明：\033[0m")
+    print("\033[91m注意请不要在下棋过程中输入字符串或大于9的数字（下赌注除外）！！！\033[0m")
     player1_bet = get_valid_bet_input("Player 1 (X)")
     player2_bet = get_valid_bet_input("Player 2 (O)")
 
@@ -113,6 +114,30 @@ def main():
         board[move] = current_player
         moves.append(move)
 
+        # 判断是否有玩家获胜
+        for Damn in range(0, 9, 3):
+            if board[Damn] == board[Damn + 1] == board[Damn + 2] != " ":
+                print(f"\033[93mPlayer {current_player} wins the game!")
+                print(f"Congratulations to Player {current_player} for winning {player1_bet + player2_bet} dollars!")
+                print("一看就是玩原神玩的（Doge\033[0m")
+                exit()
+        for cock in range(3):
+            if board[cock] == board[cock + 3] == board[cock + 6] != " ":
+                print(f"\03393mPlayer {current_player} wins the game!")
+                print(f"\03393mCongratulations to Player {current_player} for winning"
+                      f" {player1_bet + player2_bet} dollars! \033[0m")
+                print("一看就是玩原神玩的（Doge")
+                exit()
+        if (board[0] == board[4] == board[8] != " ") or (board[2] == board[4] == board[6] != " "):
+            print(f"\033[93mPlayer {current_player} wins the game!")
+            print(f"\033[93mCongratulations to Player {current_player} for winning "
+                  f"{player1_bet + player2_bet} dollars! \033[0m")
+            print("一看就是玩原神玩的（Doge")
+            exit()
+        # 判断是否有平局
+        if " " not in board:
+            print("\033[91No winner![1m")
+            break
         # 检查游戏是否结束
         game_over = check_game_over(board, current_player)
         if game_over:
