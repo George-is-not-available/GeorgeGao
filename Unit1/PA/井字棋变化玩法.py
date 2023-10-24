@@ -102,7 +102,7 @@ def get_player_input(current_player, board):
                 time.sleep(1)
             print('\n \033[94mDamn\033[91m What are you doing??????\n')
             time.sleep(2)
-            print('\033[96m一看就是玩原神玩多了。\n \033[93m')
+            print('\033[96m一看就是玩原神玩多了,都玩傻了。\n \033[93m')
             time.sleep(2)
             print('Please enter a number between 1 to 9.\033[0m \n ')
             time.sleep(2)
