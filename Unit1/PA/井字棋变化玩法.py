@@ -1,7 +1,13 @@
 import time
 import random
+import os
 
-
+# 系统清屏操作
+def clear():
+    if os.name == "nt":
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def player_choose_play(player):
     while True:
@@ -21,6 +27,13 @@ def player_choose_play(player):
 
 
 def print_board(board):
+    # 系统清屏操作
+    def clear():
+        if os.name == "nt":
+            os.system('cls')
+        else:
+            os.system('clear')
+
     for i in range(0, 9, 3):
         print(f"{board[i]} | {board[i + 1]} | {board[i + 2]}")
         if i < 6:
@@ -69,7 +82,7 @@ def play_original_version():
         board[move] = current_player
         move_count += 1
 
-        if move_count >= 5 and check_winner(board, current_player):
+        if move_count >= 7 and check_winner(board, current_player):
             print_board(board)
             print(f"\033[93mPlayer {current_player} wins the game!")
             winnings = player1_bet + player2_bet
@@ -143,11 +156,11 @@ def play_seven_steps_version():
         move_count += 1
         moves.append(move)  # 将移动添加到列表
 
-        if move_count > 7:
+        if move_count > 6:
             removed_move = moves.pop(0)
             board[removed_move] = " "  # 删除第一个棋子
 
-        if move_count >= 7:
+        if move_count >= 6:
             print_board(board)
             if check_winner(board, current_player):
                 print(f"\033[93mPlayer {current_player} wins the game!")
@@ -155,7 +168,7 @@ def play_seven_steps_version():
                 print(f"\033[93mCongratulations to Player {current_player} for winning {winnings} dollars!\n"
                       f"一看就是玩原神玩的（doge\033[0m")
             else:
-                print("\033[1mNo winner\033[0m")
+                continue
             exit()
 
         current_player = "X" if current_player == "O" else "O"
