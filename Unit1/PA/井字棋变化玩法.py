@@ -4,16 +4,6 @@ import random
 
 moves = []
 
-print("DownLoading    (Expect to download    170.52MB)")
-for i in range(1, 10):
-    print("———", end='')
-    time.sleep(1)
-    i += 1
-print("\033[93m The game is ready.\033[0m")
-time.sleep(5)
-os.system('cls' if os.name == 'nt' else 'clear')  # 清屏
-
-
 def get_valid_bet_input(player_name):
     while True:
         try:
@@ -22,8 +12,51 @@ def get_valid_bet_input(player_name):
         except ValueError:
             print("\033[91mError Invalid input. \033[95mPlease enter a valid number for the bet.\033[0m")
 
+def get_player_input(current_player, moves, board, move_count):
+    while True:
+        try:
+            if move_count >= 7:
+                removed_move = moves.pop(0)
+                board[removed_move] = " "  # 清除第一个棋子
+            move_ = int(input(f"Player {current_player}, choose a position (1-9) to play: "))
+            if 1 <= move_ <= 9:
+                return move_ - 1  # 调整索引以匹配列表的索引
+            else:
+                print("Oh Dash! Please enter a number between 1 to 9.")
+        except ValueError:
+            print("\n loading")
+            for damn in range(1, 7):
+                print(".", end='')
+                time.sleep(1)
+                damn += 1
+            print('\n \033[94mDamn\033[91m What are you Fa*king doing??????\n')
+            time.sleep(2)
+            print('\033[96m一看就是玩原神玩的,都玩傻了.\n \033[93m')
+            time.sleep(2)
+            print('Please enter a number between 1 to 9 \033[0m \n ')
+            time.sleep(1)
+            print('\033[94mDamn it!')
+            time.sleep(2)
+            print('\n\033[93mCan\'t you understand what i\'m talking about??? \n ')
+            time.sleep(2)
+            print('\033[33mI really don\'t know what\'s going on in your head!\n \033[95m')
+            time.sleep(2)
+            print("\033[95mCome on, please play by the rules!\033[0m \n")
+        else:
+            print("\033[91m"
+                  "What's problem with you?\033[0m")
+            move_count += 1  # 更新移动计数
 
 def main():
+    print("DownLoading    (Expect to download    170.52MB)")
+    for i in range(1, 10):
+        print("———", end='')
+        time.sleep(1)
+        i += 1
+    print("\033[93m The game is ready.\033[0m")
+    time.sleep(5)
+    os.system('cls' if os.name == 'nt' else 'clear')  # 清屏
+
     player1_ = get_valid_bet_input("Player 1(x)")
     player2_ = get_valid_bet_input("Player 2(o)")
 
@@ -34,8 +67,8 @@ def main():
 
     print(f"Player {current_player} starts the game!")
 
-    # 在这里定义棋盘变量 board
     board = [" " for _ in range(9)]
+    move_count = 0  # 初始化移动计数
 
     while True:
         print(f"{board[0]} | {board[1]} | {board[2]}")
@@ -44,81 +77,17 @@ def main():
         print("—————————")
         print(f"{board[6]} | {board[7]} | {board[8]}")
 
-        def get_player_input(current_player, moves, board):
-            while True:
-                try:
-                    if len(moves) >= 7:
-                        # 如果棋子数量超过了7个，删除第一个棋子
-                        removed_move = moves.pop(0)
-                        board[removed_move] = " "  # 清除第一个棋子
-                    move_ = int(input(f"Player {current_player}, choose a position (1-9) to play: "))
-                    if 1 <= move_ <= 9:
-                        return move_ - 1  # 调整索引以匹配列表的索引
-                    else:
-                        print("Oh Dash! Please enter a number between 1 to 9.")
-                except ValueError:
-                    print("\n loading")
-                    for damn in range(1, 7):
-                        print(".", end='')
-                        time.sleep(1)
-                        damn += 1
-                    print('\n \033[94mDamn\033[91m What are you Fa*king doing??????\n')
-                    time.sleep(2)
-                    print('\033[96m一看就是玩原神玩的,都玩傻了.\n \033[93m')
-                    time.sleep(2)
-                    print('Please enter a number between 1 to 9 \033[0m \n ')
-                    time.sleep(1)
-                    print('\033[94mDamn it!')
-                    time.sleep(2)
-                    print('\n\033[93mCan\'t you understand what i\'m talking about??? \n ')
-                    time.sleep(2)
-                    print('\033[33mI really don\'t know what\'s going on in your head!\n \033[95m')
-                    time.sleep(2)
-                    print('Come on, please play by the rules!\033[0m \n')
-                else:
-                    print("\033[91m"
-                          "What's problem with you?\033[0m")
-
-        # 在 main_ 函数中调用 get_player_input 时，将 moves 和 board 作为参数传递
-        move = get_player_input(current_player, moves, board)
-
-        # 判断输入的数字是否有效
+        move = get_player_input(current_player, moves, board, move_count)
 
         if board[move] == " ":
             board[move] = current_player
+            move_count += 1  # 更新移动计数
         else:
             print("Invalid move. That position is already occupied. Try again.")
-            continue
 
-            # 判断是否有玩家获胜
+        # ... 检查胜利和平局的代码 ...
 
-        for Damn in range(0, 9, 3):
-            if board[Damn] == board[Damn + 1] == board[Damn + 2] != " ":
-                print(f"Player {current_player} wins the game!")
-                print(f"Congratulations to Player {current_player} for winning {player1_ + player2_} dollars!")
-                print("一看就是玩原神玩的（Doge")
-                exit()
-        for cock in range(3):
-            if board[cock] == board[cock + 3] == board[cock + 6] != " ":
-                print(f"\033[33;1mPlayer {current_player} wins the game!")
-                print(f"\033[33;1mCongratulations to Player {current_player} for winning"
-                      f" {player1_ + player2_} dollars! \033[0m")
-                print("一看就是玩原神玩的（Doge")
-                exit()
-        if (board[0] == board[4] == board[8] != " ") or (board[2] == board[4] == board[6] != " "):
-            print(f"\033[33;1mPlayer {current_player} wins the game!")
-            print(f"\033[33;1mCongratulations to Player {current_player} for winning "
-                  f"{player1_ + player2_} dollars! \033[0m")
-            print("一看就是玩原神玩的（Doge")
-            exit()
-        # 判断是否有平局
-        if " " not in board:
-            print("\033[91No winner![1m")
-            break
-
-        # 切换玩家
         current_player = "X" if current_player == "O" else "O"
-
 
 if __name__ == "__main__":
     main()
