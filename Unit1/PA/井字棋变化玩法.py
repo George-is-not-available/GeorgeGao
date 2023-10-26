@@ -115,6 +115,7 @@ def print_board(board):
             print("—————————")
 
 
+# 下赌注
 def get_valid_bet_input(player_name):
     while True:
         try:
