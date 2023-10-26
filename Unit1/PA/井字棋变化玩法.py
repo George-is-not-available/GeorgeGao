@@ -2,12 +2,14 @@ import time
 import random
 import os
 
+
 # 系统清屏操作
 def clear():
     if os.name == "nt":
         os.system('cls')
     else:
         os.system('clear')
+
 
 def player_choose_play(player):
     while True:
@@ -107,7 +109,7 @@ def print_board(board):
           '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
     # QwQ怕清不干净
     # 希望没逝~
-    for i in range(0, 9, 3):
+    for i in range(0, 9, 3): # 打印棋盘
         print(f"{board[i]} | {board[i + 1]} | {board[i + 2]}")
         if i < 6:
             print("—————————")
@@ -244,6 +246,7 @@ def play_seven_steps_version():
                       f"一看就是玩原神玩的（doge\033[0m")
                 exit()
         current_player = "X" if current_player == "O" else "O"
+
 
 if __name__ == "__main__":
     player_choose_play("Player")
