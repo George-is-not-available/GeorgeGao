@@ -245,6 +245,5 @@ def play_seven_steps_version():
                 exit()
         current_player = "X" if current_player == "O" else "O"
 
-
 if __name__ == "__main__":
     player_choose_play("Player")
