@@ -1,7 +1,7 @@
 import time
 import random
 import os
-
+# 初始化
 
 # 系统清屏操作
 def clear():
@@ -11,7 +11,7 @@ def clear():
         os.system('clear')
 
 
-def player_choose_play(player):
+def player_choose_play(player):   # 选择游戏
     while True:
         try:
             player_choose = int(input(f"{player}, 你想玩《原版》还是玩《7步删》？"
@@ -28,7 +28,7 @@ def player_choose_play(player):
             print("Error: 无效输入，请输入 1 或 2。")
 
 
-def print_board(board):
+def print_board(board):  # 打印棋盘
     # 系统清屏操作
     clear()
     print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
@@ -184,7 +184,7 @@ def print_board(board):
           '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
     # QwQ怕清不干净
     # 希望没逝~
-    for i in range(0, 9, 3): # 打印棋盘
+    for i in range(0, 9, 3):   # 打印棋盘
         print(f"{board[i]} | {board[i + 1]} | {board[i + 2]}")
         if i < 6:
             print("—————————")
@@ -200,7 +200,7 @@ def get_valid_bet_input(player_name):
             print("Error: Invalid input. Please enter a valid number for the bet.")
 
 
-def check_winner(board, player):
+def check_winner(board, player):    # 检查有没有获胜者
     for combo in [[0, 1, 2],
                   [3, 4, 5],
                   [6, 7, 8],
@@ -214,7 +214,7 @@ def check_winner(board, player):
     return False
 
 
-def play_original_version():
+def play_original_version():     # 原版
     print("Downloading... (Expect to download 170.52MB)")
     for i in range(2, 10):
         print("——————", end='')
@@ -286,7 +286,7 @@ def get_player_input(current_player, board):
             clear()
 
 
-def play_seven_steps_version():
+def play_seven_steps_version():  # 改版
     print("Downloading... (Expect to download 217.52MB)")
     for i in range(1, 15):
         print("———", end='')
