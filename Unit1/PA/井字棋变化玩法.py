@@ -11,6 +11,8 @@ def clear():
     else:
         os.system('clear')
 
+#  主程序：
+
 #  玩家选择
 def player_choose_play(player):   # 选择游戏
     while True:
