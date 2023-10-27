@@ -1,16 +1,17 @@
+# 初始化
 import time
 import random
 import os
-# 初始化
 
-# 系统清屏操作
+
+#  系统清屏操作
 def clear():
     if os.name == "nt":
         os.system('cls')
     else:
         os.system('clear')
 
-
+#  玩家选择
 def player_choose_play(player):   # 选择游戏
     while True:
         try:
@@ -27,7 +28,16 @@ def player_choose_play(player):   # 选择游戏
         except ValueError:
             print("Error: 无效输入，请输入 1 或 2。")
 
+#  下赌注
+def get_valid_bet_input(player_name):
+    while True:
+        try:
+            bet = int(input(f"{player_name}, please place a bet: "))
+            return bet
+        except ValueError:
+            print("Error: Invalid input. Please enter a valid number for the bet.")
 
+#  打印棋盘
 def print_board(board):  # 打印棋盘
     # 系统清屏操作
     clear()
@@ -189,17 +199,7 @@ def print_board(board):  # 打印棋盘
         if i < 6:
             print("—————————")
 
-
-# 下赌注
-def get_valid_bet_input(player_name):
-    while True:
-        try:
-            bet = int(input(f"{player_name}, please place a bet: "))
-            return bet
-        except ValueError:
-            print("Error: Invalid input. Please enter a valid number for the bet.")
-
-
+#  检查是否有胜利者
 def check_winner(board, player):    # 检查有没有获胜者
     for combo in [[0, 1, 2],
                   [3, 4, 5],
@@ -213,7 +213,37 @@ def check_winner(board, player):    # 检查有没有获胜者
             return True
     return False
 
+#  防呆
+def get_player_input(current_player, board):
+    while True:
+        try:
+            move = int(input(f"Player {current_player}, choose a position (1-9) to play: "))
+            if 1 <= move <= 9:
+                if board[move - 1] == " ":
+                    return move - 1  # 调整索引以匹配列表的索引
+                else:
+                    print("Invalid move. That position is already occupied. Try again.")
+            else:
+                print("\033[94m Oh Dash!\033[35m Please enter a number between 1 to 9.\033[0m")
+        except ValueError:
+            for _ in range(1, 10):
+                print(".", end='')
+                time.sleep(1)
+            print('\n \033[94mDamn\033[91m What are you doing??????\n')
+            time.sleep(2)
+            print('\033[96m一看就是玩原神玩多了,都玩傻了。\n \033[93m')
+            time.sleep(2)
+            print('Please enter a number between 1 to 9.\033[0m \n ')
+            time.sleep(2)
+            print('\033[94mDamn it!  \n \033[93mCan\'t you understand what I\'m talking about??? \n ')
+            time.sleep(2)
+            print("\033[33mI really don‘t know what’s going on in your head!\n \033[95m")
+            time.sleep(2)
+            print('Come on, please play by the rules!\033[0m \n')
+            time.sleep(3)
+            clear()
 
+#  原版
 def play_original_version():     # 原版
     print("Downloading... (Expect to download 170.52MB)")
     for i in range(2, 10):
@@ -253,39 +283,9 @@ def play_original_version():     # 原版
             print("\033[1mNo winner[0m")
             exit()
 
-        current_player = "X" if current_player == "O" else "O"
+        current_player = "X" if current_player == "O" else "O"  #
 
-
-def get_player_input(current_player, board):
-    while True:
-        try:
-            move = int(input(f"Player {current_player}, choose a position (1-9) to play: "))
-            if 1 <= move <= 9:
-                if board[move - 1] == " ":
-                    return move - 1  # 调整索引以匹配列表的索引
-                else:
-                    print("Invalid move. That position is already occupied. Try again.")
-            else:
-                print("\033[94m Oh Dash!\033[35m Please enter a number between 1 to 9.\033[0m")
-        except ValueError:
-            for _ in range(1, 10):
-                print(".", end='')
-                time.sleep(1)
-            print('\n \033[94mDamn\033[91m What are you doing??????\n')
-            time.sleep(2)
-            print('\033[96m一看就是玩原神玩多了,都玩傻了。\n \033[93m')
-            time.sleep(2)
-            print('Please enter a number between 1 to 9.\033[0m \n ')
-            time.sleep(2)
-            print('\033[94mDamn it!  \n \033[93mCan\'t you understand what I\'m talking about??? \n ')
-            time.sleep(2)
-            print("\033[33mI really don‘t know what’s going on in your head!\n \033[95m")
-            time.sleep(2)
-            print('Come on, please play by the rules!\033[0m \n')
-            time.sleep(3)
-            clear()
-
-
+#  改版
 def play_seven_steps_version():  # 改版
     print("Downloading... (Expect to download 217.52MB)")
     for i in range(1, 15):
