@@ -4,6 +4,43 @@ import random
 import os
 
 
+#  游戏说明
+print("游戏规则：\n")
+time.sleep(3)
+print("原版：两位玩家轮流下棋，首先连成一行、一列或一对角线的玩家获胜。\n")
+time.sleep(3)
+print("7步删：两位玩家轮流下棋，每次下棋后，最早下的棋子会被移除，棋盘上最多保留6个棋子，首先连成一行、一列或一对角线的玩家获胜。\n")
+time.sleep(3)
+print("游戏流程：\n")
+time.sleep(3)
+print("游戏开始时，程序会要求玩家选择原版或7步删版本。\n")
+time.sleep(3)
+print("然后，玩家需要输入赌注，即输掉游戏后需要支付的金额。\n")
+time.sleep(3)
+print("游戏开始后，玩家轮流下棋，直到有一名玩家获胜或棋盘填满。\n")
+time.sleep(3)
+print("获胜的玩家将赢得另一名玩家的赌注金额。\n")
+time.sleep(3)
+print("特点：\n")
+time.sleep(3)
+print("游戏中有清屏操作，使游戏更具交互性。\n")
+time.sleep(3)
+print('程序提供了错误处理机制，可以处理无效输入，确保游戏的进行不会因输入错误而中断。\n')
+time.sleep(3)
+print("程序结构：\n")
+time.sleep(3)
+print('程序使用了函数来模块化不同的功能，包括清屏、获取玩家输入、检查获胜等。\n')
+time.sleep(3)
+print('代码使用了清晰的注释，以便理解每个函数的作用和程序流程。\n')
+time.sleep(3)
+print('注意事项：\n')
+time.sleep(3)
+print('游戏中的赌注是虚拟的，用于增加游戏的趣味性，不涉及实际金钱交易。\n')
+time.sleep(3)
+print('游戏中有一些有趣的提示和互动元素，使游戏更加生动。\n')
+time.sleep(2)
+
+
 #  系统清屏操作
 def clear():
     if os.name == "nt":
@@ -11,10 +48,9 @@ def clear():
     else:
         os.system('clear')
 
-#  主程序：
 
-#  玩家选择
-def player_choose_play(player):   # 选择游戏
+#  主程序：
+def player_choose_play(player):  # 选择游戏
     while True:
         try:
             player_choose = int(input(f"{player}, 你想玩《原版》还是玩《7步删》？"
@@ -30,6 +66,7 @@ def player_choose_play(player):   # 选择游戏
         except ValueError:
             print("Error: 无效输入，请输入 1 或 2。")
 
+
 #  下赌注
 def get_valid_bet_input(player_name):
     while True:
@@ -38,6 +75,7 @@ def get_valid_bet_input(player_name):
             return bet
         except ValueError:
             print("Error: Invalid input. Please enter a valid number for the bet.")
+
 
 #  打印棋盘
 def print_board(board):  # 打印棋盘
@@ -196,13 +234,14 @@ def print_board(board):  # 打印棋盘
           '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
     # QwQ怕清不干净
     # 希望没逝~
-    for i in range(0, 9, 3):   # 打印棋盘
+    for i in range(0, 9, 3):  # 打印棋盘
         print(f"{board[i]} | {board[i + 1]} | {board[i + 2]}")
         if i < 6:
             print("—————————")
 
+
 #  检查是否有胜利者
-def check_winner(board, player):    # 检查有没有获胜者
+def check_winner(board, player):  # 检查有没有获胜者
     for combo in [[0, 1, 2],
                   [3, 4, 5],
                   [6, 7, 8],
@@ -214,6 +253,7 @@ def check_winner(board, player):    # 检查有没有获胜者
         if all(board[i] == player for i in combo):
             return True
     return False
+
 
 #  防呆
 def get_player_input(current_player, board):
@@ -245,8 +285,9 @@ def get_player_input(current_player, board):
             time.sleep(3)
             clear()
 
+
 #  原版
-def play_original_version():     # 原版
+def play_original_version():  # 原版
     print("Downloading... (Expect to download 170.52MB)")
     for i in range(2, 10):
         print("——————", end='')
@@ -286,6 +327,7 @@ def play_original_version():     # 原版
             exit()
 
         current_player = "X" if current_player == "O" else "O"  #
+
 
 #  改版
 def play_seven_steps_version():  # 改版
