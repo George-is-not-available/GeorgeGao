@@ -1,0 +1,415 @@
+一、修改字符串（针对英文字符串）大小写。
+（1）title() : 将字符串（英文）开头字母装换为大写，如姓名、名称等。
+
+（2）apper() : 将字符串（英文）全部转换为大写。
+
+（3）lower() : 将字符串（英文）全部转换为小写。
+
+二、删除空白格。
+（1）rstrip() : 删除后空格。
+
+（2）lstrip() : 删除前空格。
+
+(3) strip() : 删除前后空格。
+
+三、对列表进行添加和删除。
+（1）append() : 在列表末尾添加元素。
+
+（2）insert() : 在列表中插入元素。
+
+（3）pop() : 删除列表末尾元素，或弹出列表任何位置的元素。
+
+四、排序列表顺序。
+（1）sort() ：对列表进行合理排序。（ 如从大到小、从前到后 ）
+
+（2）sort( reverse = True ) : 对列表进行反向（倒转）排序。
+
+（3）sorted() : 对列表元素进行临时排序。（排序过后元素位置还可以再次更改）
+
+（4）reverse() : 反向（倒转）列表元素排序顺序和（2）的用法有些类似，返回倒转前，可再 重复一次。
+
+五、找列表。
+（1）找列表元素最大值：max()
+
+（2）找列表元素最小值：min()
+
+（3）求列表元素之和：sum()
+
+（4）求列表元素的个数和长度：len()
+
+（备注：该函数一般适用于在数字列表下使用，括号内是变量名）
+
+六 、易忘函数。
+(1) find
+
+
+功能：用于在一段程序语句中，查找单个语句构成元素的位置或索引。
+
+例如：
+
+test = "abcd"
+print(test.find('ab'))
+
+输出结果为：0
+
+(2) split
+
+
+功能：对一段程序语句进行分割处理，转换为列表的格式。
+
+例如：
+
+test = "a,b,c,d"
+print(test.split(','))
+
+ 输出结果为：['a', 'b', 'c', 'd']
+
+(3) replsce
+
+功能：对一段程序语句中的构成元素进行替换。
+
+例如：
+
+string = "Python is good"
+print(string.replace('Python','java'))
+
+ 输出结果为：java is good
+
+
+（4）startswith
+
+功能：用于检验在一段程序语句中，是否以特定元素（元素可以是单词、字母或数字）开头。
+
+例如：
+
+string = "is is a book"
+print(string.startswith('this'))
+
+输出结果为：True
+
+
+（5）endswith
+
+功能：用于检验在一段程序语句中，是否以特定元素（可以是单词、字母或数字）结尾。
+
+例如：
+
+string = "this is a book"
+print(string.endswith('book'))
+
+输出结果为：True
+
+
+（6）strip()
+
+功能：用于删除一段程序语句末尾或开头的换行符。
+
+例如：
+
+string = "this is a book\n"
+print(string.strip())
+输出结果为：this is a book
+
+
+（7）[::-1]
+
+功能：用于倒转列表元素。
+
+例如：
+
+list = [1,2,3,4,5]
+print(list[::-1])
+
+输出结果为：[5, 4, 3, 2, 1]
+
+
+
+（8）sort(reverse = True)
+
+功能：倒转列表元素。（一般与' sort() '函数集合在一起使用）
+
+例如：
+
+list = [1,2,3,4,5]
+print(list.sort(reverse = True))
+
+输出结果为：[5, 4, 3, 2, 1]
+
+
+（9）rstrip()
+
+功能：删除后空格。
+
+例如：
+
+>>> news = "I love you Python "
+>>> news.rstrip()
+'I love you Python'
+
+备注：类似的还有“ lstrip  (删除前空格) ”、“ strip (删除前后空格) ” 用法和格式与strip()一样.
+
+
+
+（10）import math math.sqrt()
+
+功能：计算一个带根号的数值。
+
+例如：
+
+# 计算根号16的值.
+import math
+print(math.sqrt(16))
+
+输出结果为：4.0
+七、range()函数的使用（用于创建数字列表）。
+（1）打印数字1-5
+
+for value in range(1,6):
+    print(value)
+
+输出结果：1、2、3、4、5
+（2）创建数字列表，使用“list()”函数将结果转换为列表格式
+
+numbers = list(range(1,6))
+print(numbers)
+
+输出结果：[1, 2, 3, 4, 5]
+（3）打印1-10内的所有偶数
+
+numbers = list(range(2,11,2))
+print(numbers)
+
+输出结果：[2, 4, 6, 8, 10]
+（4）创建一个1-10的平方数字列表
+
+squares = [ ] # 先创建一个用于存储计算值的空列表.
+for value in range(1,11): # 遍历1-10的所有值.
+    square = value**2 # 计算当前平均值，并将结果存储在square中.
+    squares.append(square) # 将计算结果存储在空列表中.
+print(squares)
+
+输出结果：[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+备注：在Python中两个星号（**）表示乘方运算。
+八、切片的使用。
+（1）在列表中提取元素
+
+# 找出0-2的索引元素.
+numbers = [1,2,3,4,5]
+print(numbers[0:3]) # 其中0是起始位置，3是终止位置.
+
+输出结果：[1, 2, 3]
+
+备注：可根据情况自由变换,方式多种多样.
+（2）遍历切片
+
+numbers = [1,2,3,4,5]
+for number in numbers[:3]:
+    print(number)
+
+输出结果：1 2 3
+
+备注：这只是遍历列表的一部分元素，也可以遍历整个列表.
+(3) 使用切片复制列表
+
+numbers_1 = [1,2,3,4,5]
+numbers_2 = numbers_1[:]
+# 原列表.
+print(numbers_1)
+# 复制的列表.
+print(numbers_2)
+
+输出结果：两个列表的输出结果一样，都是 [1, 2, 3, 4, 5]
+九、字典的运用。
+（1）访问字典中的值
+
+alien_0 = {'color':'green'}
+print(alien_0['color'])
+
+输出结果：green
+（2） 在一个字典中添加键值对
+
+alien_0 = {'color':'green'}
+print(alien_0['color'])
+
+# 添加两个键值对.
+alien_0['x_position'] = 0
+alien_0['yposition'] = 25
+print(alien_0)
+
+输出结果：{'color': 'green', 'x_position': 0, 'y_position': 25}
+（3）使用“del" 函数删除键值对
+
+alien_0 = {'color':'green','points':5}
+print(alien_0)
+
+# 删除第二个键值对
+del alien_0['points']
+print(alien_0)
+
+输出结果：{'color': 'green', 'points': 5}
+         {'color': 'green'}
+
+备注：被删除的键值对就永远消失了.
+(4) 使用“ items( ) "函数遍历字典中所有键值对
+
+user_0 = {'username':'efermi',
+          'first':'enrico',
+          'last':'fermi',
+          }
+# 遍历键值对.
+for key,value in user_0.items():
+    print("\nkey: " + key)
+    print("\nvalue: " + value)
+
+输出结果：key: username
+
+value: efermi
+
+key: first
+
+value: enrico
+
+key: last
+
+value: fermi
+
+备注：在遍历字典键值对时，在for函数后边一定不要忘记加上 ".items( )"
+(5) 使用“keys( )”遍历字典中所有的键
+
+favorite_languages = {'jen':'python',
+                      'sarah':'c',
+                      'edward':'ruby',
+                      'phil':'python',
+                     }
+# 遍历字典中的键.
+for name in favorite_languages.keys():
+    print(name.title())
+
+输出结果：
+Jen
+Sarah
+Edward
+Phil
+
+备注：在遍历字典键时，在for函数后边一定不要忘记加上 ".keys( )"
+（6）使用“ values( ) ”函数遍历字典中的值
+
+favorite_languages = {'jen':'python',
+                      'sarah':'c',
+                      'edward':'ruby',
+                      'phil':'python',
+                     }
+# 遍历字典中的值.
+for languages in favorite_languages.values():
+    print(languages.title())
+
+输出结果：
+Python
+C
+Ruby
+Python
+
+# 使用“ set( ) ”函数防止出现几个相同的元素，确保每个打印出来的元素都是独一无二的.
+for languages in set(favorite_languages.values()):
+    print(languages.title())
+
+备注：在遍历字典值时，在for函数后边一定不要忘记加上 ".values( )"
+十、嵌套。
+（1）在列表中添加（存储）字典
+
+# 先创建几个字典.
+alien_0 ={'color':'green','points':5}
+alien_1 ={'color':'yellow','points':10}
+alien_2 ={'color':'red','points':15}
+
+# 将上面三个字典存放在列表“aliens”中.
+aliens = [alien_0, alien_1, alien_2]
+for alien in aliens:# 遍历这个列表.
+    print(alien)
+
+输出结果：
+{'color': 'green', 'points': 5}
+{'color': 'yellow', 'points': 10}
+{'color': 'red', 'points': 15}
+
+（2）在字典中添加（存储）列表
+
+favorite_languages = {'jen':['python','ruby'],
+                      'sarah':['c'],
+                      'edward':['ruby','go'],
+                      'phil':['python','java']
+                     }
+# 遍历字典中的键.
+for name, languages in favorite_languages.items():
+    print("\n" + name.title() + "s'favorite languages are:")
+    for language in languages:
+        print("\t" + language.title())
+
+
+输出结果：
+Jens'favorite languages are:
+	Python
+	Ruby
+
+Sarahs'favorite languages are:
+	C
+
+Edwards'favorite languages are:
+	Ruby
+	Go
+
+Phils'favorite languages are:
+	Python
+	Java
+（3）在字典中添加（存储）字典
+
+users = {'aeinstein':{
+         'first':'albert',
+         'last':'einstein',
+         'location':'princeton',
+          }
+             }
+
+# 遍历字典键值对.
+for key, value in users.items():
+    print(key + ":" + "\n" + str(value))
+
+
+输出结果：
+aeinstein:
+{'first': 'albert', 'last': 'einstein', 'location': 'princeton'}
+十一、while循坏使用。
+（1）input() : 向用户显示提示和说明。
+
+（2）int() : 将输入的数值转换为字符串的形式，确保输入的数值能正确的打印出来。
+
+(3)import : 导入一个文件或代码块。
+
+（4） break ：该语句用于控制程序流程或退出循坏（一般多于“if-elif-else”语句集合使用）。
+
+while True:
+    city = input("你好呀!：\n")
+    if city == 'quit':
+        break
+else:
+    print("我很好！")
+（5）continue : 返回循坏开头，根据测试条件和结果判断是否继续循坏。
+
+# 在while中使用“continue”函数.
+current_number = 0
+while current_number < 10: # 循坏条件.
+    current_number += 1 # 每循坏一次，就在循坏结果后面加1
+    if current_number % 2 == 0:
+        continue
+    print(current_number)
+
+（6）使用while循坏
+
+# 使用while循坏从1数到5.
+current_number = 1
+while current_number <= 5: # 循坏条件.
+    print(current_number)
+    current_number += 1
+
+输出结果：1 2 3 4 5
