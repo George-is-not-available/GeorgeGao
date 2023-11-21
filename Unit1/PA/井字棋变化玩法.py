@@ -2,6 +2,7 @@
 import time
 import random
 import os
+import webbrowser
 #  游戏说明
 
 
@@ -19,9 +20,12 @@ def player_choose_play(player):  # 选择游戏
     while True:
         try:
             player_choose = int(input(f"{player}, 你想玩《原版》还是玩《7步删》？"
-                                      f"\n想玩《原版》输1，《7步删》输2: "))
+                                      f"\n想玩《原版》输1，《7步删》输2，想玩《原神》输3，请给出你的答案: "))
             if player_choose == 1:
                 play_original_version()
+                break  # 游戏完成后退出循环
+            if player_choose == 3:
+                play_genshen()
                 break  # 游戏完成后退出循环
             elif player_choose == 2:
                 play_seven_steps_version()
@@ -100,7 +104,11 @@ def get_player_input(current_player, board):
             time.sleep(3)
             clear()
 
+def play_genshen(): # 原神
+    url = 'https://www.example.com'
+    webbrowser.open(url)
 
+    time.sleep(20)
 #  原版
 def play_original_version():  # 原版
     print("Downloading... (Expect to download 170.52MB)")
