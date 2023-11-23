@@ -2,9 +2,43 @@
 import time
 import random
 import os
-import webbrowser
-#  游戏说明
 
+
+#  游戏说明
+print("游戏规则：\n")
+time.sleep(3)
+print("原版：两位玩家轮流下棋，首先连成一行、一列或一对角线的玩家获胜。\n")
+time.sleep(3)
+print("7步删：两位玩家轮流下棋，每次下棋后，最早下的棋子会被移除，棋盘上最多保留6个棋子，首先连成一行、一列或一对角线的玩家获胜。\n")
+time.sleep(3)
+print("游戏流程：\n")
+time.sleep(3)
+print("游戏开始时，程序会要求玩家选择原版或7步删版本。\n")
+time.sleep(3)
+print("然后，玩家需要输入赌注，即输掉游戏后需要支付的金额。\n")
+time.sleep(3)
+print("游戏开始后，玩家轮流下棋，直到有一名玩家获胜或棋盘填满。\n")
+time.sleep(3)
+print("获胜的玩家将赢得另一名玩家的赌注金额。\n")
+time.sleep(3)
+print("特点：\n")
+time.sleep(3)
+print("游戏中有清屏操作，使游戏更具交互性。\n")
+time.sleep(3)
+print('程序提供了错误处理机制，可以处理无效输入，确保游戏的进行不会因输入错误而中断。\n')
+time.sleep(3)
+print("程序结构：\n")
+time.sleep(3)
+print('程序使用了函数来模块化不同的功能，包括清屏、获取玩家输入、检查获胜等。\n')
+time.sleep(3)
+print('代码使用了清晰的注释，以便理解每个函数的作用和程序流程。\n')
+time.sleep(3)
+print('注意事项：\n')
+time.sleep(3)
+print('游戏中的赌注是虚拟的，用于增加游戏的趣味性，不涉及实际金钱交易。\n')
+time.sleep(3)
+print('游戏中有一些有趣的提示和互动元素，使游戏更加生动。\n')
+time.sleep(2)
 
 
 #  系统清屏操作
@@ -20,12 +54,9 @@ def player_choose_play(player):  # 选择游戏
     while True:
         try:
             player_choose = int(input(f"{player}, 你想玩《原版》还是玩《7步删》？"
-                                      f"\n想玩《原版》输1，《7步删》输2，想玩《原神》输3，请给出你的答案: "))
+                                      f"\n想玩《原版》输1，《7步删》输2: "))
             if player_choose == 1:
                 play_original_version()
-                break  # 游戏完成后退出循环
-            if player_choose == 3:
-                play_genshen()
                 break  # 游戏完成后退出循环
             elif player_choose == 2:
                 play_seven_steps_version()
@@ -50,7 +81,157 @@ def get_valid_bet_input(player_name):
 def print_board(board):  # 打印棋盘
     # 系统清屏操作
     clear()
-    print('\n'*10)
+    print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+          '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
     # QwQ怕清不干净
     # 希望没逝~
     for i in range(0, 9, 3):  # 打印棋盘
@@ -104,11 +285,7 @@ def get_player_input(current_player, board):
             time.sleep(3)
             clear()
 
-def play_genshen(): # 原神
-    url = 'https://www.example.com'
-    webbrowser.open(url)
 
-    time.sleep(20)
 #  原版
 def play_original_version():  # 原版
     print("Downloading... (Expect to download 170.52MB)")
