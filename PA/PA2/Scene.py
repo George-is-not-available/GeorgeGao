@@ -18,13 +18,5 @@ class Scene:
         pass
 
 
-class Obstacle:
-    class Cactus:
-        pass
 
-    class Pterodactyl:
-        pass
 
-    class Dinosaur:
-        class Cactus:
-            pass
