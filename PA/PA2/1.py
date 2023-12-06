@@ -1,7 +1,6 @@
 # main.py
 
 import pygame
-import sys
 
 # pygame setup
 pygame.init()
@@ -11,13 +10,8 @@ running = True
 
 # create a ground image
 ground = pygame.image.load('resources/images/ground/ground.png')
-ground_rect = ground.get_rect()
-ground_rect.left, ground_rect.bottom = 0, 650
-
-# create a second ground image for continuous scrolling
-ground2 = pygame.image.load('resources/images/ground/ground.png')
-ground2_rect = ground2.get_rect()
-ground2_rect.left, ground2_rect.bottom = ground_rect.width, 650
+rect = ground.get_rect()
+rect.left, rect.bottom = 0, 650
 
 # game loop
 while running:
@@ -26,29 +20,22 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # fill the screen with a white color
-    screen.fill((255, 255, 255))
+    # fill the screen with a color to wipe away anything from last frame
+    screen.fill("white")
 
-    # put both ground images on the screen
-    screen.blit(ground, ground_rect)
-    screen.blit(ground2, ground2_rect)
+    # put ground on screen
+    screen.blit(ground, rect)
 
-    # move both ground images
-    ground_rect.left -= 8
-    ground2_rect.left -= 8
+    # move ground
+    rect.left -= 8
 
-    # check if either ground image is completely off the screen, then reset its position
-    if ground_rect.right < 0:
-        ground_rect.left = ground2_rect.right
+    if rect.right < 0:
+        rect.left = 4
 
-    if ground2_rect.right < 0:
-        ground2_rect.left = ground_rect.right
+    # flip() the display to put your work on screen
+    pygame.display.flip()
 
-    # update the display
-    pygame.display.update()
-
-    # limit FPS to 60
-    clock.tick(60)
+    # limits FPS to 60
+    clock.tick(100)
 
 pygame.quit()
-sys.exit()
