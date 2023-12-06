@@ -56,9 +56,6 @@ class Scene:
         sys.exit()
         pass
 
-    import pygame
-    import sys
-    import time
     import threading
 
     class Scene:
@@ -126,7 +123,7 @@ class Scene:
                 pygame.init()
                 self.screen = pygame.display.set_mode((800, 600))
                 self.clock = pygame.time.Clock()
-                self.is_blood_moon: = True
+                self.is_blood_moon = True
                 self.cycle_duration = 240  # 2 minutes for each cycle
                 self.start_time = time.time()
 
