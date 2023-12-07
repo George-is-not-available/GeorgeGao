@@ -1,5 +1,13 @@
 import pygame
 from scene import Ground
+from dinosaur import Dinosaur
+# main.py
+pygame.init()
+screen = pygame.display.set_mode((1280, 720))
+clock = pygame.time.Clock()
+# create dinosaur
+dinosaur = Dinosaur()
+
 
 # Create an instance of the Ground class
 ground = Ground()
@@ -11,12 +19,14 @@ while ground.running:
             ground.running = False
 
     # Fill the screen with a white color
-    ground.screen.fill((255, 255, 255))
+    ground.screen.fill('white')
 
     # Draw and update the ground
     ground.draw()
     ground.update()
-
+    # draw dinosaur
+    dinosaur.update()
+    dinosaur.draw(screen)
     # Update the display
     pygame.display.update()
 

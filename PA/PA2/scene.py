@@ -53,7 +53,8 @@ class Ground(pygame.sprite.Sprite):
 class Moon(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load('resources/images/moon/moon.png')
+        self.running = None
+        self.image = pygame.image.load('resources/images/moon/moon-1.png')
         self.rect = self.image.get_rect()
         self.rect.center = (100, 100)
 
