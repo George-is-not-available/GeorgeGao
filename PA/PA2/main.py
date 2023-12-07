@@ -1,9 +1,11 @@
 import pygame
+
 from scene import Ground
 from dinosaur import Dinosaur
+
 # main.py
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode((1300, 740))
 clock = pygame.time.Clock()
 # create dinosaur
 dinosaur = Dinosaur()
@@ -17,6 +19,27 @@ while ground.running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             ground.running = False
+
+    # main.py
+    # set action on key press event
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            ground.running = False
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_SPACE]:
+        dinosaur.jump()
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            ground.running = False
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LSHIFT] or keys[pygame.K_RSHIFT]:
+        dinosaur.crouch()
+    else:
+        dinosaur.stand_up_()
 
     # Fill the screen with a white color
     ground.screen.fill('white')
