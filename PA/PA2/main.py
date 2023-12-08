@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import dinosaur
 from dinosaur import Dinosaur
 from obstacle import ObstacleManager
 from scene import Ground, Moon, Cloud, Star, Scoreboard, EndingIcon
@@ -46,6 +47,13 @@ def main():
 
     while running:
         #  Main game loop
+        for cactus in cacti:
+            if pygame.sprite.collide_mask(dinosaur, cactus):
+                if dinosaur.state != 'dash':
+                    dinosaur.die()
+                    running = False
+                else:
+                    cactus.knock()
         # 检查音乐是否已经播放完
         if not pygame.mixer.music.get_busy() and music_played:
             # 切换到下一首音乐
@@ -86,7 +94,7 @@ def main():
             star.update()
             star.draw(screen)
 
-        dinosaur.update()
+        dinosaur.update(screen)
         dinosaur.draw(screen)
         scoreboard.update()
         scoreboard.draw(screen)

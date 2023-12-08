@@ -17,7 +17,7 @@ class Cactus(pygame.sprite.Sprite):
     def update(self):
         self.rect.left -= self.speed
         # 重新定位仙人掌，使其循环出现在屏幕右侧
-        if self.rect.right <= 0:
+        if self.rect.right <= -3:
             self.rect.left = 1280
             self.image = random.choice(self.images)
             self.rect.bottom = 640
