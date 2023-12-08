@@ -1,41 +1,70 @@
-# main.py
-
 import pygame
 
-# pygame setup
-pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-clock = pygame.time.Clock()
-running = True
+class Dinosaur(pygame.sprite.Sprite):
+    def __init__(self):
+        self.images = (
+            pygame.image.load('resources/images/dinosaur/dinosaur-run-1.png'),
+            pygame.image.load('resources/images/dinosaur/dinosaur-run-2.png')
+        )
+        self.crouch_images = (
+            pygame.image.load('resources/images/dinosaur/dinosaur-duck-1.png'),
+            pygame.image.load('resources/images/dinosaur/dinosaur-duck-2.png')
+        )
 
-# create a ground image
-ground = pygame.image.load('resources/images/ground/ground.png')
-rect = ground.get_rect()
-rect.left, rect.bottom = 0, 650
+        self.image = self.images[0]
+        self.rect = self.image.get_rect()
+        self.rect.left, self.rect.bottom = 30, 637
+        self.frame = 0
+        self.jump_time = 0
+        self.status = 'run'
+        self.is_crouching = False
+        self.jump_height = [34, 34, 34, 34, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 17, 14, 10,
+                            5, 1, -1, -5, -10, -14, -17,
+                            -18, -19,
+                            -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -34, -34,
+                            -34. - 34]
+    def stand_up(self):
+        self.is_crouching = False
 
-# game loop
-while running:
+    def switch_image(self):
+        if self.frame % 10 == 0:
+            if not self.is_crouching:
+                if self.image == self.images[0]:
+                    self.image = self.images[1]
+                else:
+                    self.image = self.images[0]
+            else:
+                # Alternate between the two crouch images
+                self.image = self.crouch_images[self.frame % len(self.crouch_images)]
+        self.frame += 1
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    def jump(self):
+        if self.status != 'jump':
+            self.status = 'jump'
+            pygame.mixer.Sound('resources/audios/jump.mp3').play()
+            self.image = pygame.image.load('resources/images/dinosaur/dinosaur-jump.png')
+            self.jump_time = 0  # Reset jump time when initiating a jump
 
-    # fill the screen with a color to wipe away anything from last frame
-    screen.fill("white")
+    def crouch(self):
+        self.is_crouching = True
+        # Use crouch image when the character is crouching
+        self.image = self.crouch_images[0]
 
-    # put ground on screen
-    screen.blit(ground, rect)
+    def stand_up_(self):
+        self.is_crouching = False
+        # Return to the running image when standing up
+        self.image = self.images[0]
 
-    # move ground
-    rect.left -= 8
+    def update(self):
+        self.switch_image()
+        if self.status == 'jump':
+            self.rect.bottom -= self.jump_height[self.jump_time]
+            self.jump_time += 1
+            if self.jump_time == len(self.jump_height):
+                self.status = 'run'
+                self.jump_time = 0
+                # Ensure that the dinosaur is within the screen bounds after jumping
+                self.rect.bottom = min(self.rect.bottom, 640)
 
-    if rect.right < 0:
-        rect.left = 4
-
-    # flip() the display to put your work on screen
-    pygame.display.flip()
-
-    # limits FPS to 60
-    clock.tick(100)
-
-pygame.quit()
+    def draw(self, screen):
+        screen.blit(self.image, self.rect)
