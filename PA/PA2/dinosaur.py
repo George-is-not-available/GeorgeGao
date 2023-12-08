@@ -2,6 +2,13 @@ import pygame
 
 
 class Dinosaur:
+    # Initialize Pygame
+    pygame.init()
+    # Set up the screen
+    screen_width, screen_height = 1280, 720
+    screen = pygame.display.set_mode((screen_width, screen_height))
+    pygame.display.set_caption("Dinosaur Game")
+
     def __init__(self):
         self.images = (
             pygame.image.load('resources/images/dinosaur/dinosaur-run-1.png'),
@@ -16,14 +23,13 @@ class Dinosaur:
         self.rect = self.image.get_rect()
         self.rect.left, self.rect.bottom = 30, 637
         self.frame = 0
-        self.jump_time = 0
+        self.jump_time = 2
         self.status = 'run'
         self.is_crouching = False
-        self.jump_height = [34, 34, 34, 34, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 17, 14, 10,
+        self.jump_height = [29,29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 17, 14, 10,
                             5, 1, -1, -5, -10, -14, -17,
                             -18, -19,
-                            -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -34, -34,
-                            -34. - 34]
+                            -20, -21, -22, -23, -24, -25, -26, -27, -28, -29,-29]
 
     def stand_up(self):
         self.is_crouching = False
@@ -43,7 +49,7 @@ class Dinosaur:
     def jump(self):
         if self.status != 'jump':
             self.status = 'jump'
-            pygame.mixer.Sound('resources/deep-dark.mp3').play()
+            pygame.mixer.Sound('resources/audios/jump.mp3').play()
             self.image = pygame.image.load('resources/images/dinosaur/dinosaur-jump.png')
             self.jump_time = 0  # Reset jump time when initiating a jump
 
