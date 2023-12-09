@@ -20,10 +20,10 @@ class Dinosaur(pygame.sprite.Sprite):
         self.jump_time = 2
         self.status = 'run'
         self.is_crouching = False
-        self.jump_height = [29, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 17, 14, 10,
+        self.jump_height = [31,30,29, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 17, 14, 10,
                             5, 1, -1, -5, -10, -14, -17,
                             -18, -19,
-                            -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -29]
+                            -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -29,-30,-31]
 
         self.mask = pygame.mask.from_surface(self.image)
 

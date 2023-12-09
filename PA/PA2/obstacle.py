@@ -7,7 +7,8 @@ class Cactus(pygame.sprite.Sprite):
         super().__init__()
         self.images = [
             pygame.image.load('resources/images/cactus/cactus-4.png'),
-            pygame.image.load('resources/images/cactus/cactus-6.png')
+            pygame.image.load('resources/images/cactus/cactus-6.png'),
+            pygame.image.load('resources/images/cactus/cactus-5.png')
         ]
         self.image = random.choice(self.images)
         self.rect = self.image.get_rect()
@@ -20,7 +21,7 @@ class Cactus(pygame.sprite.Sprite):
         if self.rect.right <= -3:
             self.rect.left = 1280
             self.image = random.choice(self.images)
-            self.rect.bottom = 640
+            self.rect.bottom = 645
 
 class ObstacleManager:
     def __init__(self):
@@ -28,7 +29,7 @@ class ObstacleManager:
 
     def add_cactus(self, ground_speed):
         # Add a new cactus only if the number of cacti is less than 2
-        if len(self.cacti) < 2:
+        if len(self.cacti) < 1:
             cactus = Cactus(ground_speed)
             self.cacti.add(cactus)
 
