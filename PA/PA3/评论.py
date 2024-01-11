@@ -4,6 +4,8 @@ import json
 import pandas as pd
 
 file_location = 'The data/data2.xlsx'
+
+
 def write_comments(file_location, final_data):
     df = pd.DataFrame(final_data)
     df.to_excel(file_location, index=False)
