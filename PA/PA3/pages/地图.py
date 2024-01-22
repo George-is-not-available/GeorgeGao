@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import json
@@ -139,12 +140,16 @@ data = '''
 }
 '''
 
-# Load the JSON data
+
+# 加载JSON数据
 json_data = json.loads(data)
 
-# Extract latitude and longitude values
-latitude_values = [v.get("latitude", None) for v in json_data.values()]
-longitude_values = [v.get("longitude", None) for v in json_data.values()]
+# 从JSON数据创建DataFrame
+df = pd.DataFrame.from_dict(json_data, orient='index').reset_index()
+df.columns = ['location', 'latitude', 'longitude']
+
+# 删除具有空值的行
+df = df.dropna(subset=['latitude', 'longitude'])
 
 # 显示地图
-st.map(latitude='latitude', longitude='longitude')
+st.map(data=df)
