@@ -1,0 +1,167 @@
+@font-face {
+  font-family: MinecraftTen;
+  src: url(src/MinecraftTen.woff);
+}
+
+@font-face {
+  font-family: Noto Sans;
+  src: url(src/NotoSans-Bold.woff2);
+}
+
+.intro h2 {
+  display: flex;
+  font-family: MinecraftTen;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.intro p {
+  text-align: center;
+  max-width: 492px;
+  margin: 16px auto 24px;
+  font-family: Noto Sans;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  
+}
+
+.card{
+  flex: 0 336px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-box {
+  border: 15px solid;
+  padding:24px 17px 0;
+  height: calc(100% - 180px);
+}
+
+.navigation {
+  position: fixed 1;
+  top: 0;
+  left: 0;
+  width:97%;
+  background-color: #333;
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navigation ul li {
+  margin-right: 20px;
+}
+
+.navigation ul li:last-child {
+  margin-right: 0;
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation img {
+  max-width: 180px;
+}
+
+.navigation button {
+  background-color: #6fccff;
+  color: #333;
+  border: none;
+  padding: 10px 65px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.navigation button:hover {
+  background-color: #5ec6e6;
+}
+
+body {
+  background-image: url('src//R1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+
+}
+
+.custom-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.custom-card-img {
+  width: 65%;
+  /* 将图片的宽度调整为容器宽度的 55% */
+  border-top-left-radius: 5px;
+  /* 设置左上角边框圆角 */
+  border-top-right-radius: 5px;
+  /* 设置右上角边框圆角 */
+}
+
+
+.custom-card-box {
+  padding: 15px;
+  border: 24px 17px;
+}
+
+.custom-card-main {
+  background-color: #f9f9f9;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.custom-card-title {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.custom-card-paragraph {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0;
+}
+
+.custom-tags {
+  margin-top: 10px;
+}
+
+.custom-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f2f2f2;
+  color: #666;
+  font-size: 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.card:nth-child(1) .card-box {
+  border-color: rgb(156, 105, 53);
+}
+
+.card:nth-child(2) .card-box {
+  border-color: rgb(153, 65, 229);
+}
+
+.card:nth-child(3) .card-box {
+  border-color: rgb(84, 136, 232);
+}
